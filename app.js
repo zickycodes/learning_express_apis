@@ -3,7 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const sequelize = require("./util/database");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const helmet = require("helmet");
 const fs = require("fs");
 
@@ -39,13 +39,13 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, "access.log"),
-  { flags: "a" }
-);
+// const accessLogStream = fs.createWriteStream(
+//   path.join(__dirname, "access.log"),
+//   { flags: "a" }
+// );
 
 app.use(helmet());
-app.use(morgan("combined", { stream: accessLogStream }));
+// app.use(morgan("combined", { stream: accessLogStream }));
 app.use(
   multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
 );
