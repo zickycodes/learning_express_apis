@@ -5,6 +5,7 @@ const multer = require("multer");
 const sequelize = require("./util/database");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const fs = require("fs");
 
 // Models
 const Post = require("./model/post");
